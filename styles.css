@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px;
+}
+.board .row{
+    display: flex;
+    flex-direction: row;
+}
+.board button{
+    font-size: 50px;
+    height: 200px;
+    width: 200px;
+}
