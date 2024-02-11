@@ -4,6 +4,21 @@ body{
     justify-content: center;
     align-items: center;
 }
+#dialog{
+    background-color: white;
+
+}
+#dialog{
+    background-color: white;  
+}
+
+#dialog .content{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    gap: 10px;
+}
+
 .board{
     display: flex;
     flex-direction: column;

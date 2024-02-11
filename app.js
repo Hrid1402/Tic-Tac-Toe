@@ -1,5 +1,26 @@
 const btns = document.querySelectorAll(".nb");
 const playAgainBTN = document.querySelector("#playAgain");
+const mainText = document.querySelector("#mainText");
+const dialog = document.querySelector("#dialog");
+const closeBtn = document.querySelector("#closeDialog");
+const input1 = document.querySelector("#inputP1");
+const input2 = document.querySelector("#inputP2");
+
+closeBtn.addEventListener("click", () =>{
+    if(input1.value == "" || input2.value == "")
+    {
+        alert("Complete the spaces");
+    }else{
+        dialog.close();
+        player1 = player(input1.value, "x");
+        player2 = player(input2.value, "o");
+        
+        board.newGame();
+    }
+    
+});
+
+dialog.showModal();
 playAgainBTN.addEventListener("click",() =>{
     console.log("xd");
     board.newGame();
@@ -10,12 +31,12 @@ const btn0 = document.querySelector("#btn0");
 let pOneTurn = true;
 btn0.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(0), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(0), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(0), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(0), player2);
+        board.checkGame(player2);
     }
     
 });
@@ -23,109 +44,109 @@ btn0.addEventListener("click",() =>{
 const btn1 = document.querySelector("#btn1");
 btn1.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(1), player1.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player1.play(1), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(1), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(1), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn2 = document.querySelector("#btn2");
 btn2.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(2), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(2), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(2), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(2), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn3 = document.querySelector("#btn3");
 btn3.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(3), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(3), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(3), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(3), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn4 = document.querySelector("#btn4");
 btn4.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(4), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(4), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(4), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(4), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn5 = document.querySelector("#btn5");
 btn5.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(5), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(5), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(5), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(5), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn6 = document.querySelector("#btn6");
 btn6.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(6), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(6), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(6), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(6), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn7 = document.querySelector("#btn7");
 btn7.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(7), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(7), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(7), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(7), player2);
+        board.checkGame(player2);
     }
 });
 
 const btn8 = document.querySelector("#btn8");
 btn8.addEventListener("click",() =>{
     if(pOneTurn){
-        board.play(player1.play(8), player1.simbol);
-        board.checkGame(player1.simbol);
+        board.play(player1.play(8), player1);
+        board.checkGame(player1);
     }
     else{
-        board.play(player2.play(8), player2.simbol);
-        board.checkGame(player2.simbol);
+        board.play(player2.play(8), player2);
+        board.checkGame(player2);
     }
 });
 
 
 
 function gameBoard(){
-    let gameBoard = ["0","1","2",
-                "3","4","5"
-                ,"6","7", "8"];
-    const play = (position, simbol) => {
+    let gameBoard = [".",".",".",
+                ".",".","."
+                ,".",".", "."];
+    const play = (position, player) => {
 
-        gameBoard[Number(position)] = simbol;
-        btns[Number(position)].textContent = simbol;
+        gameBoard[Number(position)] = player.simbol;
+        btns[Number(position)].textContent = player.simbol;
         btns[Number(position)].disabled = true;
 
         console.log("___________");
@@ -137,18 +158,22 @@ function gameBoard(){
 
         
         if(pOneTurn){
+            mainText.textContent = player2.name + " turn";
             pOneTurn = false;
         }
         else{
+            mainText.textContent = player1.name + " turn";
             pOneTurn = true;
         }
-
+        
         
     };
     const newGame = () => {
-        gameBoard = ["0","1","2",
-                "3","4","5"
-                ,"6","7", "8"];
+        pOneTurn = true;
+        mainText.textContent = player1.name + " turn";
+        gameBoard = [".",".",".",
+                ".",".","."
+                ,".",".", "."];
         btns.forEach(button => {
             button.textContent = "";
             button.disabled = false;
@@ -160,26 +185,35 @@ function gameBoard(){
         console.log(gameBoard[6] +" | "+ gameBoard[7] + " | "+ gameBoard[8]);
         
     }
-    const checkGame = (simbol) => {
+    const checkGame = (player) => {
         if(
         //row 1   __
-        (gameBoard[0] == simbol && gameBoard[1] == simbol && gameBoard[2] == simbol) || 
+        (gameBoard[0] == player.simbol && gameBoard[1] == player.simbol && gameBoard[2] == player.simbol) || 
         //row 2   __
-        (gameBoard[3] == simbol && gameBoard[4] == simbol && gameBoard[5] == simbol) ||
+        (gameBoard[3] == player.simbol && gameBoard[4] == player.simbol && gameBoard[5] == player.simbol) ||
         //row 3   __
-        (gameBoard[6] == simbol && gameBoard[7] == simbol && gameBoard[8] == simbol) ||
+        (gameBoard[6] == player.simbol && gameBoard[7] == player.simbol && gameBoard[8] == player.simbol) ||
         //column 1  |
-        (gameBoard[0] == simbol && gameBoard[3] == simbol && gameBoard[6] == simbol) ||
+        (gameBoard[0] == player.simbol && gameBoard[3] == player.simbol && gameBoard[6] == player.simbol) ||
         //column 2     |
-        (gameBoard[1] == simbol && gameBoard[4] == simbol && gameBoard[7] == simbol) ||
+        (gameBoard[1] == player.simbol && gameBoard[4] == player.simbol && gameBoard[7] == player.simbol) ||
         //column 3        |
-        (gameBoard[2] == simbol && gameBoard[5] == simbol && gameBoard[8] == simbol) ||
+        (gameBoard[2] == player.simbol && gameBoard[5] == player.simbol && gameBoard[8] == player.simbol) ||
         //diagonal 1   \
-        (gameBoard[0] == simbol && gameBoard[4] == simbol && gameBoard[8] == simbol) ||
+        (gameBoard[0] == player.simbol && gameBoard[4] == player.simbol && gameBoard[8] == player.simbol) ||
         //diagonal 2    /
-        (gameBoard[6] == simbol && gameBoard[4] == simbol && gameBoard[2] == simbol)
+        (gameBoard[6] == player.simbol && gameBoard[4] == player.simbol && gameBoard[2] == player.simbol)
         ){
-            alert("Winner");
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+        }
+        else if(!gameBoard.includes(".")){
+            mainText.textContent = "Draw";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
         }
     }
     return {play, newGame, checkGame}
@@ -193,10 +227,9 @@ function player(name, simbol){
 }
 
 board = gameBoard();
-player1 = player("p1", "x");
-player2 = player("p2", "o");
 
-board.newGame();
+
+
 
 
 
