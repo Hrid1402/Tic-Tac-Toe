@@ -18,17 +18,45 @@ body h1{
     background-color: white;
 
 }
-#dialog{
-    background-color: white;  
-}
 
 #dialog .content{
+    height: 29rem;
     display: flex;
     flex-direction: column;  
     align-items: center;
     gap: 10px;
 }
+#dialog .content label{
+    font-size: 1.3rem;
+    margin-top: 25px;
+}
+#dialog .content input{
+    height: 2rem;
+    font-size: 1rem;
+    width: 20rem;
+}
+#dialog .content h2{
+    font-size: 1.8rem;
+    padding: 10px 25px;
+    font-weight: bolder;
+}
+#closeDialog{
+    color:white;
+    background-color: #1f65d6;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2.7rem;
+    font-size: 25px;
+    padding: 15px 25px;
+}
+#closeDialog:hover{
+    background-color: #1f4789;
+}
+#closeDialog:active{
+    background-color:white;
+}
 #playAgain{
+    opacity: 0;
     border: none;
     font-size: 40px;
     border-radius: 15px;
@@ -46,6 +74,13 @@ body h1{
     align-items: center; 
     padding: 20px;
 }
+#mainText{
+    background-color: #c0e2fd;
+    margin: 0;
+    border-radius: 10px;
+    padding: 5px 25px;
+    font-size: 45px;
+}
 .board .row{
     display: flex;
     flex-direction: row;
@@ -61,8 +96,7 @@ body h1{
     width: 200px;
 }
 .board button:hover{
-    border: #182c53 2px solid;
-    background-color: #94d2fc;
+    border: #182c53 6px solid;
     color: #182c53;
 }
 .board button:disabled{

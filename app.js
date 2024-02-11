@@ -6,6 +6,8 @@ const closeBtn = document.querySelector("#closeDialog");
 const input1 = document.querySelector("#inputP1");
 const input2 = document.querySelector("#inputP2");
 
+const winColor = "#0e4e7e"
+const textWinColor = "white";
 closeBtn.addEventListener("click", () =>{
     if(input1.value == "" || input2.value == "")
     {
@@ -169,6 +171,7 @@ function gameBoard(){
         
     };
     const newGame = () => {
+        playAgainBTN.style.opacity = "100";
         pOneTurn = true;
         mainText.textContent = player1.name + " turn";
         gameBoard = [".",".",".",
@@ -177,6 +180,8 @@ function gameBoard(){
         btns.forEach(button => {
             button.textContent = "";
             button.disabled = false;
+            button.style.backgroundColor = "#c0e2fd";
+            button.style.color = "#182c53";
         });
         console.log(gameBoard[0] +" | "+ gameBoard[1] + " | "+ gameBoard[2]);
 
@@ -186,34 +191,150 @@ function gameBoard(){
         
     }
     const checkGame = (player) => {
-        if(
-        //row 1   __
-        (gameBoard[0] == player.simbol && gameBoard[1] == player.simbol && gameBoard[2] == player.simbol) || 
-        //row 2   __
-        (gameBoard[3] == player.simbol && gameBoard[4] == player.simbol && gameBoard[5] == player.simbol) ||
-        //row 3   __
-        (gameBoard[6] == player.simbol && gameBoard[7] == player.simbol && gameBoard[8] == player.simbol) ||
-        //column 1  |
-        (gameBoard[0] == player.simbol && gameBoard[3] == player.simbol && gameBoard[6] == player.simbol) ||
-        //column 2     |
-        (gameBoard[1] == player.simbol && gameBoard[4] == player.simbol && gameBoard[7] == player.simbol) ||
-        //column 3        |
-        (gameBoard[2] == player.simbol && gameBoard[5] == player.simbol && gameBoard[8] == player.simbol) ||
-        //diagonal 1   \
-        (gameBoard[0] == player.simbol && gameBoard[4] == player.simbol && gameBoard[8] == player.simbol) ||
-        //diagonal 2    /
-        (gameBoard[6] == player.simbol && gameBoard[4] == player.simbol && gameBoard[2] == player.simbol)
-        ){
+        if (
+            //row 1   __
+            (gameBoard[0] == player.simbol && gameBoard[1] == player.simbol && gameBoard[2] == player.simbol)
+        ) {
             mainText.textContent = player.name + " WINS!!!";
             btns.forEach(button => {
                 button.disabled = true;
             });
+            btns[0].style.backgroundColor = winColor;
+            btns[1].style.backgroundColor = winColor;
+            btns[2].style.backgroundColor = winColor;
+
+            btns[0].style.color = textWinColor;
+            btns[1].style.color = textWinColor;
+            btns[2].style.color = textWinColor;
+
+
+        } else if (
+            //row 2   __
+            (gameBoard[3] == player.simbol && gameBoard[4] == player.simbol && gameBoard[5] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+            btns[3].style.backgroundColor = winColor;
+            btns[4].style.backgroundColor = winColor;
+            btns[5].style.backgroundColor = winColor;
+
+            btns[3].style.color = textWinColor;
+            btns[4].style.color = textWinColor;
+            btns[5].style.color = textWinColor;
+
+
+        } else if (
+            //row 3   __
+            (gameBoard[6] == player.simbol && gameBoard[7] == player.simbol && gameBoard[8] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[6].style.backgroundColor = winColor;
+            btns[7].style.backgroundColor = winColor;
+            btns[8].style.backgroundColor = winColor;
+
+            btns[6].style.color = textWinColor;
+            btns[7].style.color = textWinColor;
+            btns[8].style.color = textWinColor;
+
+        } else if (
+            //column 1  |
+            (gameBoard[0] == player.simbol && gameBoard[3] == player.simbol && gameBoard[6] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[0].style.backgroundColor = winColor;
+            btns[3].style.backgroundColor = winColor;
+            btns[6].style.backgroundColor = winColor;
+
+            btns[0].style.color = textWinColor;
+            btns[3].style.color = textWinColor;
+            btns[6].style.color = textWinColor;
+
+        } else if (
+            //column 2     |
+            (gameBoard[1] == player.simbol && gameBoard[4] == player.simbol && gameBoard[7] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[1].style.backgroundColor = winColor;
+            btns[4].style.backgroundColor = winColor;
+            btns[7].style.backgroundColor = winColor;
+
+            btns[1].style.color = textWinColor;
+            btns[4].style.color = textWinColor;
+            btns[7].style.color = textWinColor;
+
+        } else if (
+            //column 3        |
+            (gameBoard[2] == player.simbol && gameBoard[5] == player.simbol && gameBoard[8] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[2].style.backgroundColor = winColor;
+            btns[5].style.backgroundColor = winColor;
+            btns[8].style.backgroundColor = winColor;
+
+            btns[2].style.color = textWinColor;
+            btns[5].style.color = textWinColor;
+            btns[8].style.color = textWinColor;
+
+        } else if (
+            //diagonal 1   \
+            (gameBoard[0] == player.simbol && gameBoard[4] == player.simbol && gameBoard[8] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[0].style.backgroundColor = winColor;
+            btns[4].style.backgroundColor = winColor;
+            btns[8].style.backgroundColor = winColor;
+
+            btns[0].style.color = textWinColor;
+            btns[4].style.color = textWinColor;
+            btns[8].style.color = textWinColor;
+
+        } else if (
+            //diagonal 2    /
+            (gameBoard[6] == player.simbol && gameBoard[4] == player.simbol && gameBoard[2] == player.simbol)
+        ) {
+            mainText.textContent = player.name + " WINS!!!";
+            btns.forEach(button => {
+                button.disabled = true;
+            });
+
+            btns[6].style.backgroundColor = winColor;
+            btns[4].style.backgroundColor = winColor;
+            btns[2].style.backgroundColor = winColor;
+
+            btns[6].style.color = textWinColor;
+            btns[4].style.color = textWinColor;
+            btns[2].style.color = textWinColor;
+
         }
+        ///////////////////////        
         else if(!gameBoard.includes(".")){
             mainText.textContent = "Draw";
             btns.forEach(button => {
                 button.disabled = true;
             });
+            
         }
     }
     return {play, newGame, checkGame}
